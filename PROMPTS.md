@@ -55,7 +55,7 @@ Admins should update order status, edit order information, delete orders,
 see customer total spend, update pricing, and export order data as CSV.
 ```
 
-## 7. README Polish
+## 7. README 
 
 ```text
 Write a concise README for a MERN intern assignment that feels professional.
