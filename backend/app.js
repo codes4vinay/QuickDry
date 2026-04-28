@@ -1,4 +1,6 @@
 require("dotenv").config();
+const fs = require("fs");
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -14,6 +16,7 @@ const garmentRoutes = require("./routes/garmentRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const app = express();
+const frontendDistPath = path.join(__dirname, "..", "frontend", "dist");
 
 app.use(helmet());
 app.use(cors({
@@ -41,6 +44,13 @@ app.use("/api/customers", customerRoutes);
 app.use("/api/pricing", pricingRoutes);
 app.use("/api/store", storeRoutes);
 app.use("/api/garments", garmentRoutes);
+
+if (fs.existsSync(frontendDistPath)) {
+  app.use(express.static(frontendDistPath));
+  app.get(/^\/(?!api).*/, (_req, res) => {
+    res.sendFile(path.join(frontendDistPath, "index.html"));
+  });
+}
 
 app.use(notFound);
 app.use(errorHandler);
