@@ -1,20 +1,19 @@
-# LaundryPro AI Prompts
+# QuickDry AI Prompts
 
 These are representative prompts used while building LaundryPro. They are written in a natural style because the assignment asks to show practical AI usage, not just final code.
 
 ## 1. Product Direction
 
 ```text
-Turn this laundry assignment into a real SaaS MERN product called LaundryPro.
-I want two dashboards: one for customers and one for store admins.
-Keep the scope realistic for an intern assignment but make it look recruiter-ready.
+Turn this laundry assignment into a real SaaS MERN product called QuickDry.
+I want two dashboards: one for customers and one for admins.
 List the routes, models, screens, and core workflows.
 ```
 
 ## 2. Backend API
 
 ```text
-Build an Express + MongoDB API for LaundryPro with JWT auth and roles CUSTOMER and ADMIN.
+Build an Express + MongoDB API for QuickDry with JWT auth and roles CUSTOMER and ADMIN.
 Use Mongoose models for User, Order, and Pricing.
 Customers should only see their own orders.
 Admins should manage all orders, customers, pricing, and reports.
