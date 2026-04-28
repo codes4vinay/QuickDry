@@ -24,13 +24,21 @@ QuickDry is a full MERN stack laundry management SaaS with two dashboards: a cus
 
 ## Setup
 
-Install dependencies:
+Install backend dependencies:
 
 ```bash
-npm run install:all
+cd backend
+npm install
 ```
 
-Create environment files:
+Install frontend dependencies:
+
+```bash
+cd ../frontend
+npm install
+```
+
+Create environment files from the project root:
 
 ```powershell
 Copy-Item backend/.env.example backend/.env
@@ -49,14 +57,63 @@ CLIENT_URL=http://localhost:5173
 
 For MongoDB Atlas, replace `MONGO_URI` with your Atlas connection string.
 
-Run the project:
+Frontend `.env`:
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+Run the backend:
 
 ```bash
+cd backend
+npm run dev
+```
+
+Run the frontend in another terminal:
+
+```bash
+cd frontend
 npm run dev
 ```
 
 - Frontend: `http://localhost:5173`
 - Backend health: `http://localhost:5000/api/health`
+
+## Separate Deployment
+
+Deploy the backend and frontend as two separate services.
+
+Backend on Render:
+
+```txt
+Root Directory: backend
+Build Command: npm install
+Start Command: npm start
+```
+
+Backend environment variables:
+
+```env
+MONGO_URI=your-mongodb-atlas-uri
+JWT_SECRET=your-production-secret
+JWT_EXPIRES_IN=7d
+CLIENT_URL=https://your-frontend-url
+```
+
+Frontend on Render/Vercel/Netlify:
+
+```txt
+Root Directory: frontend
+Build Command: npm install && npm run build
+Publish Directory: dist
+```
+
+Frontend environment variable:
+
+```env
+VITE_API_URL=https://your-backend-url/api
+```
 
 ## Demo Notes
 
