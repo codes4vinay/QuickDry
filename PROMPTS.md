@@ -5,7 +5,7 @@ These are representative prompts used while building LaundryPro. They are writte
 ## 1. Product Direction
 
 ```text
-Turn this laundry assignment into a real SaaS-style MERN product called LaundryPro.
+Turn this laundry assignment into a real SaaS MERN product called LaundryPro.
 I want two dashboards: one for customers and one for store admins.
 Keep the scope realistic for an intern assignment but make it look recruiter-ready.
 List the routes, models, screens, and core workflows.
